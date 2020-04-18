@@ -10,24 +10,13 @@
   package:
     name: cockpit-session-recording
   when: install_session_player
+  notify: restart cockpit
 
 - name: enable cockpit.socket
   service:
     name: cockpit.socket
     enabled: yes
   when: enable_cockpit
-
-- name: enable cockpit.service
-  service:
-    name: cockpit.service
-    enabled: yes
-  when: enable_cockpit
-
-- name: restart cockpit
-  service:
-    name: cockpit
-    state: restarted
-  when: restart_cockpit
 
 - name: get the rpm package facts
   package_facts:

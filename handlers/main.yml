@@ -1,5 +1,11 @@
 ---
 
+- name: restart cockpit
+  service:
+    name: cockpit.service
+    state: restarted
+  when: restart_cockpit
+
 - name: restart rsyslog
   service:
     name: rsyslog
